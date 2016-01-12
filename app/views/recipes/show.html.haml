@@ -28,6 +28,20 @@
 	.row
 		.col-md-12
 			= link_to "Back", root_path, class: "btn btn-default"
-			- if current_user && recipe.user_id = current_user.id
+			- if current_user && @recipe.user_id = current_user.id
 				= link_to "Edit", edit_recipe_path, class: "btn btn-default"
 				= link_to "Delete", recipe_path, method: :delete, data: {confirm: "Are you sure?" }, class: "btn btn-default"
+	%h3.comment_title
+		Komentarzy:
+		= @recipe.comments.count
+
+	.row
+		#comments
+			= render :partial => @recipe.comments
+
+	.row
+		= simple_form_for [@recipe, Comment.new] do |f|
+			.field
+				= f. text_area :body, class: "form-control"
+			%br
+			= f.submit "Add Comment", class: "btn btn-primary"
