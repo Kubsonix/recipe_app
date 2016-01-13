@@ -4,10 +4,10 @@
       .glyphicon.glyphicon-user
     .col-md-8
       #user_info
-        %h3 #{@user.firstname} #{@user.lastname}
+        %h3 #{@user.firstname.capitalize!} #{@user.lastname.capitalize!}
         %p= @user.email
-        %p Dodanych przepisów: #{@recipes.count}
+        %p Added recipes: #{@recipes.count}
 
   #about_buttons.row
-    = link_to "Edytuj profil", edit_user_registration_path, class: "btn btn-default"
-    = link_to "Moje przepisy", '#', class: "btn btn-default"
+    = link_to "Edit profile", edit_user_registration_path, class: "btn btn-default"
+    = link_to "My recipes", '#', class: "btn btn-default"

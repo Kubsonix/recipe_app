@@ -32,8 +32,11 @@
 				= link_to "Edit", edit_recipe_path, class: "btn btn-default"
 				= link_to "Delete", recipe_path, method: :delete, data: {confirm: "Are you sure?" }, class: "btn btn-default"
 	%h3.comment_title
-		Komentarzy:
-		= @recipe.comments.count
+		- if @recipe.comments.blank?
+			%p There is no comments yet! Be first!
+		- else
+			Komentarzy:
+			= @recipe.comments.count
 
 	#comments
 		.row
