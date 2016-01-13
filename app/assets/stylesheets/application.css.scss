@@ -112,7 +112,7 @@ body {
 .recipe_image {
 	max-width: 100%;
 	border-radius: 5px;
-	@include box-shadow;
+
 }
 
 #recipe_info {
@@ -186,5 +186,15 @@ body {
 .navbar-form {
 	.form-control {
 		width: 30%;
+	}
+}
+
+#star-rating
+{
+	margin: 10px;
+ 	img {
+		height: 30px;
+		border: 2px solid gray;
+		border-radius: 5px;
 	}
 }

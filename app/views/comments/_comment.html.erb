@@ -2,6 +2,7 @@
 	<div class="comments_wrapper clearfix">
 		<div class="pull-left">
 			<p class="lead"><%= comment.body %></p>
+			<p class="lead star-rating" data-score= <%= comment.rating %> </p>
 			<p><small>Submitted <strong><%= time_ago_in_words(comment.created_at) %> ago</strong> by <%= comment.user.firstname.capitalize! %></small></p>
 		</div>
 
@@ -12,3 +13,13 @@
 		</div>
 	</div>
 <% end %>
+
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>

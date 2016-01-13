@@ -44,6 +44,10 @@
 			%br
 			= simple_form_for [@recipe, Comment.new] do |f|
 				.field
-					= f. text_area :body, class: "form-control"
+					#star-rating
+					= f.text_area :body, placeholder: "Add comment",  class: "form-control"
 				%br
 				= f.submit "Add Comment", class: "btn btn-primary"
+
+%script
+	$('#star-rating').raty({ path: '/assets/',scoreName: 'comment[rating]' });
