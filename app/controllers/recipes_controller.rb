@@ -6,6 +6,14 @@ class RecipesController < ApplicationController
   expose(:recipe)
   expose(:recipes)
 
+  def search
+    if params[:search].present?
+      @recipes = Recipe.search(params[:search])
+    else
+      @recipes = Recipe.all
+    end
+  end
+
   def index
     @recipe = Recipe.all.order("created_at DESC")
   end

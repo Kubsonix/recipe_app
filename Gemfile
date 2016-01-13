@@ -13,6 +13,7 @@ gem 'paperclip', '~> 4.3', '>= 4.3.2'
 gem 'cocoon', '~> 1.2', '>= 1.2.6'
 gem 'devise', '~> 3.5', '>= 3.5.3'
 gem 'decent_exposure', '~> 2.3', '>= 2.3.3'
+gem 'searchkick', '~> 1.1', '>= 1.1.2'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
