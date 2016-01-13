@@ -1,6 +1,9 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:create, :edit, :destroy]
+  before_action :author!, only: [:edit, :update, :destroy]
+
+  expose(:comment)
 
   def create
     @recipe = Recipe.find(params[:recipe_id])
@@ -29,6 +32,16 @@ class CommentsController < ApplicationController
   private
     def set_comment
       @comment = Comment.find(params[:id])
+    end
+
+    def author!
+      if current_user.nil?
+        redirect_to new_user_session_path
+      else
+        unless @comment.user_id == current_user.id || current_user.admin?
+          redirect_to :back, notice: "You are not allowed to make changes"
+        end
+      end
     end
 
     def comment_params

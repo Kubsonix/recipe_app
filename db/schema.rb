@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112232330) do
+ActiveRecord::Schema.define(version: 20160113002925) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "recipe_id"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20160112232330) do
     t.datetime "updated_at",                          null: false
     t.string   "firstname"
     t.string   "lastname"
+    t.boolean  "admin"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

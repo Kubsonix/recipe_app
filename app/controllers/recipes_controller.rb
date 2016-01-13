@@ -1,6 +1,10 @@
 class RecipesController < ApplicationController
   before_action :find_recipe, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :author!, only: [:edit, :update, :destroy]
+
+  expose(:recipe)
+  expose(:recipes)
 
   def index
     @recipe = Recipe.all.order("created_at DESC")
@@ -45,7 +49,18 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
   end
 
+  def author!
+    if current_user.nil?
+      redirect_to new_user_session_path
+    else
+      unless @recipe.user_id == current_user.id || current_user.admin?
+        redirect_to @recipe, notice: "You are not allowed to make changes"
+      end
+    end
+  end
+
   def recipe_params
     params.require(:recipe).permit(:title, :description, :image, ingredients_attributes: [:id, :name, :_destroy], directions_attributes: [:id, :step, :_destroy])
   end
+
 end
