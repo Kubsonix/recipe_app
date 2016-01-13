@@ -7,7 +7,7 @@ class RecipesController < ApplicationController
   expose(:recipes)
 
   def search
-    if params[:search].present?
+    if params[:search].present? 
       @recipes = Recipe.search(params[:search])
     else
       @recipes = Recipe.all
