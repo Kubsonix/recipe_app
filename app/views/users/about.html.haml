@@ -1,0 +1,13 @@
+.main_content
+  #about_info.row
+    .col-md-4
+      .glyphicon.glyphicon-user
+    .col-md-8
+      #user_info
+        %h3 #{@user.firstname} #{@user.lastname}
+        %p= @user.email
+        %p Dodanych przepisów: #{@recipes.count}
+
+  #about_buttons.row
+    = link_to "Edytuj profil", edit_user_registration_path, class: "btn btn-default"
+    = link_to "Moje przepisy", '#', class: "btn btn-default"

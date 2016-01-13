@@ -14,7 +14,7 @@ body {
 }
 
 .main_content {
-	padding: 0 0 50px 0;
+	padding: 0 0 20px 0;
 	.comments_title {
 		margin-top: 2em;
 		h3 {
@@ -152,4 +152,35 @@ body {
 }
 .add-button {
 	margin-top: 25px;
+}
+
+
+.glyphicon-user {
+  font-size: 100px;
+	padding: 10px;
+}
+
+
+#about_info {
+	background: white;
+	@include box-shadow;
+	min-height: 50px;
+	border-radius: 5px;
+	padding: 2em 8%;
+	margin: 5px 300px 5px 300px;
+}
+
+#user_info {
+	padding: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+#about_buttons {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 25px;
 }
