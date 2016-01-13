@@ -27,8 +27,12 @@ body {
 	}
 	#comments {
 		.comment {
-			padding: 1em 0;
+			padding: 1em 2em;
+			margin: 2em;
 			border-top: 1px solid #E9E9E9;
+			background: white;
+			@include box-shadow;
+			border-radius: 5px;
 			.lead {
 				margin-bottom: 0;
 			}

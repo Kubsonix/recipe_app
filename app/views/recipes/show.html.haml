@@ -8,7 +8,7 @@
 				%p.description= @recipe.description
 				%p
 					Submitted by
-					= @recipe.user.email
+					= @recipe.user.firstname.capitalize!
 
 	.row
 		.col-md-6
@@ -35,13 +35,12 @@
 		Komentarzy:
 		= @recipe.comments.count
 
-	.row
-		#comments
+	#comments
+		.row
 			= render :partial => @recipe.comments
-
-	.row
-		= simple_form_for [@recipe, Comment.new] do |f|
-			.field
-				= f. text_area :body, class: "form-control"
 			%br
-			= f.submit "Add Comment", class: "btn btn-primary"
+			= simple_form_for [@recipe, Comment.new] do |f|
+				.field
+					= f. text_area :body, class: "form-control"
+				%br
+				= f.submit "Add Comment", class: "btn btn-primary"
