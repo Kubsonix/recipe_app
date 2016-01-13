@@ -154,7 +154,6 @@ body {
 	margin-top: 25px;
 }
 
-
 .glyphicon-user {
   font-size: 100px;
 	padding: 10px;
@@ -183,4 +182,9 @@ body {
 	text-align: center;
 	margin-top: 10px;
 	margin-bottom: 25px;
+}
+.navbar-form {
+	.form-control {
+		width: 30%;
+	}
 }
