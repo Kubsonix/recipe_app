@@ -7,4 +7,7 @@ class UsersController < ApplicationController
     @recipes = current_user.recipes
   end
 
+  def my_recipes
+    @recipe = current_user.recipes
+  end
 end
